@@ -1,0 +1,306 @@
+@import url(../../../stylesheets/application.css);
+@import '_mixins';
+
+html {
+
+	body {
+
+		h2, h3, h4, .wiki h1, .wiki h2, .wiki h3 {
+			border-bottom: 0px;
+		}
+
+		#wrapper {
+			background-color:#FAFAFA; 
+			font-size : 12px;
+
+			#header, #top-menu {
+				background-color : #2e2e2e;
+				margin: 0px; 
+				font-size : 12px; 
+				padding : 6px 2px 20px 6px;
+				position : fixed;
+				width : 100%;
+				z-index : 10000;
+			}
+
+			@include breakpoint(mobile) {
+
+				.flyout-menu {
+					background-color : #2e2e2e;
+
+					.flyout-menu__search {
+						display : none;
+					}
+
+					.flyout-menu__avatar {
+						padding : 14px;
+					}
+				}
+				
+				#top-menu, #header > #main-menu {
+					display : none;
+				}
+
+				#header {
+					top : 0 !important;
+
+					.mobile-toggle-button {
+						border-left  : 0;
+					}
+
+				}
+
+				#main {
+
+					#content {
+						margin-top : 10px !important;
+					}
+
+				}
+
+			}
+
+			#header {
+				top : 27.59px;
+
+				#quick-search {
+					display : none;
+				}
+
+				#main-menu { 
+
+					.menu-children {
+						border : 1px solid rgba(0, 0, 0, .1);
+
+						li {
+
+							a:hover {
+								background-color: #2E2E2E;
+								text-decoration : none;
+							}
+
+						}
+					}
+
+					li {
+
+						a {
+							background-color: transparent; 
+							font-weight: bold;
+							padding : 10px 14px 10px 14px;
+
+							&.new-object {
+								background-color:transparent; 
+								font-size : 14px; 
+								font-weight : 700; 
+								text-decoration: none;
+							}
+
+							&.selected, &.selected:hover {
+								color : #000; 
+								background-color: #EEEEEE;
+							}
+
+							&:hover {
+								background: rgba(0, 0, 0, .55); 
+								text-decoration: underline;
+							}
+						}
+
+					}
+				}
+
+				&::after {
+					left: 0;
+					bottom: -5px;
+					background-position: left 0 top -2px;
+					position: absolute;
+					width: 100%;
+					height: 5px;
+					background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHBAMAAADzDtBxAAAAD1BMVEUAAAAAAAAAAAAAAAAAAABPDueNAAAABXRSTlMUCS0gBIh/TXEAAAAaSURBVAjXYxCEAgY4UIICBmMogMsgFLtAAQCNSwXZKOdPxgAAAABJRU5ErkJggg==);
+					background-repeat: repeat-x;
+					content: "";
+				}
+			}
+
+			#top-menu {
+
+				#account {
+					margin-right : 5px;
+				}
+
+			}
+
+			#main { 
+				margin: 8px 10px 0px 10px;
+
+				#content {
+					background: #fff; 
+					margin : 130px 15px 0 15px;	
+					border : 1px solid rgba(0, 0, 0, .1);
+					box-shadow: 1px 1px 16px -4px rgba(0, 0, 0, .1);
+					border-radius: 3px;
+					padding : 20px;
+
+					.add-filter {
+
+						#add_filter_select {
+							width : 100px;
+						}
+
+						label {
+							font-size: 12px;
+							text-align: right;
+							margin-right: 5px;
+							color: rgba(0, 0, 0, .55);
+						}
+
+					}
+
+					#contextual {
+						font-size : 12px;
+					}
+
+					#context-menu {
+						font-size : 13px;
+					}
+				}
+			}
+
+			#footer { 
+				border : 0;
+				padding: 30px 0px;
+				background: transparent;
+				font-size: 12px;	
+			}
+		}
+
+	}
+
+}
+
+table {
+
+	&.list {
+
+		thead {
+
+			th {
+				border : 1px solid rgba(0, 0, 0, .1);
+				background : #fafafa;
+				padding : 10px;
+				
+				a {
+					color : rgba(0, 0, 0, .55);
+
+					&:hover {
+						color : #000;
+						text-decoration : none;
+					}
+				}
+			}
+
+		}
+
+		tbody {
+
+			td, tr:hover td {
+				padding : 10px;
+				border: solid 1px #d7d7d7;
+			}
+
+		}
+
+	}
+
+}
+
+/* Tables */
+/* Issues grid styles by priorities (provided by Wynn Netherland) */
+table.list tr.issue a { color: #666; }
+
+tr.odd.priority-highest, table.list tbody tr.odd.priority-highest:hover { color: #900; font-weight: bold; }
+tr.odd.priority-highest { background: #ffc4c4; }
+tr.even.priority-highest, table.list tbody tr.even.priority-highest:hover { color: #900; font-weight: bold; }
+tr.even.priority-highest { background: #ffd4d4; }
+tr.priority-highest a, tr.priority-5:hover a { color: #900; }
+tr.odd.priority-highest td, tr.even.priority-highest td { border-color: #ffb4b4; }
+
+tr.odd.priority-high2, table.list tbody tr.odd.priority-high4:hover { color: #900; }
+tr.odd.priority-high2 { background: #ffc4c4; }
+tr.even.priority-high2, table.list tbody tr.even.priority-high4:hover { color: #900; }
+tr.even.priority-high2 { background: #ffd4d4; }
+tr.priority-high2 a { color: #900; }
+tr.odd.priority-high2 td, tr.even.priority-high4 td { border-color: #ffb4b4; }
+
+tr.odd.priority-high3, table.list tbody tr.odd.priority-high3:hover { color: #900; }
+tr.odd.priority-high3 { background: #fee; }
+tr.even.priority-high3, table.list tbody tr.even.priority-high3:hover { color: #900; }
+tr.even.priority-high3 { background: #fff2f2; }
+tr.priority-high3 a { color: #900; }
+tr.odd.priority-high3 td, tr.even.priority-high3 td { border-color: #fcc; }
+
+tr.odd.priority-lowest, table.list tbody tr.odd.priority-lowest:hover { color: #559; }
+tr.odd.priority-lowest { background: #eaf7ff; }
+tr.even.priority-lowest, table.list tbody tr.even.priority-lowest:hover { color: #559; }
+tr.even.priority-lowest { background: #f2faff; }
+tr.priority-lowest a { color: #559; }
+tr.odd.priority-lowest td, tr.even.priority-lowest td { border-color: #add7f3; }
+
+/* Buttons */
+input[type="button"], input[type="submit"], input[type="reset"] { background-color: #f2f2f2; color: #222222; border: 1px outset #cccccc; }
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover { background-color: #ccccbb; }
+
+/* Fields */
+input[type="text"], input[type="password"], textarea, select { 
+	height : auto !important;
+	padding : 10px;
+	width : 100%;
+	border: 1px solid #d7d7d7; 
+}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus { border: 1px solid #888866; }
+option { border-bottom: 1px dotted #d7d7d7; }
+
+/* Misc */
+.box { background-color: #fcfcfc; }
+
+.tabular label {
+    font-weight: normal;
+    float: left;
+    text-align: right;
+    margin-left: -180px;
+    width: 175px;
+    line-height: 36px;
+    font-size: 14px;
+}
+
+fieldset.collapsible {
+	margin-bottom : 13px;
+	border-width : 0;
+}
+
+fieldset.collapsible > legend {
+    cursor: pointer;
+    padding-left: 18px;
+    background-position: 4px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, .55);
+    padding-right: 6px;
+}
+
+.filter > .field > input[type=checkbox] {
+	margin-top : -3px;
+}
+
+.filter > .field > label {
+	font-size : 14px;
+}
+
+#query_form_with_buttons > .buttons {
+	font-size : 13px;
+}
+
+#sidebar {
+	width: 280px;
+  	  margin: 130px 15px 0 15px;
+}
